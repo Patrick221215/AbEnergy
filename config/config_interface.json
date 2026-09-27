@@ -1,0 +1,128 @@
+{
+    "interface_energy": 
+   {
+      "repr_cfg": 
+      {
+      "d_seq": 512, 
+      "d_pair": 128,
+      "node_dim": 96,
+      "hidden_dim": 96,
+      "iface_cutoff": 12.0,
+      "iface_soft_tau": 1.0,
+      "cdr_intra_cutoff": 12.0,
+      "min_edges_per_src": 4,
+      "k_iface": 12,
+      "pair2rbf_mode": "concat",
+      "lmax": 2,
+      "vecnorm_type": "rms",
+      "trainable_vecnorm": false,
+      "num_heads": 8,
+      "num_layers": 4,
+      "hidden_channels": 96,
+      "num_rbf": 20,
+      "rbf_type": "expnorm",
+      "trainable_rbf": false,
+      "activation": "tanh",
+      "attn_activation": "tanh",
+      "max_num_neighbors": 20,
+      "vertex_type": "Edge",
+      
+      "embeddings_and_seqformer": 
+      {
+         "seqformer_num_block": 1,
+         "seq_channel": 512,
+         "pair_channel": 128,
+         "max_relative_feature": 32,
+         "index_embed_size": 32,
+         "prev_pos": {
+         "min_bin": 3.375,
+         "num_bins": 15,
+         "max_bin": 21.375
+      },
+         "seqformer": 
+         {
+            "seq_attention_with_pair_bias": {
+               "orientation": "per_row",
+               "num_head": 32,
+               "inp_kernels": [],
+               "dropout_rate": 0.1,
+               "shared_dropout": true
+            },
+            "seq_transition": {
+               "orientation": "per_row",
+               "num_intermediate_factor": 4,
+               "dropout_rate": 0,
+               "shared_dropout": true
+            },
+            "outer_product_mean": {
+               "orientation": "per_row",
+               "num_outer_channel": 64,
+               "dropout_rate": 0,
+               "shared_dropout": true
+            },
+            "triangle_multiplication_outgoing": {
+               "orientation": "per_row",
+               "num_intermediate_channel": 128,
+               "gating": true,
+               "num_head": 4,
+               "inp_kernels": [],
+               "dropout_rate": 0.1,
+               "shared_dropout": false
+            },
+            "triangle_multiplication_incoming": {
+               "orientation": "per_column",
+               "num_intermediate_channel": 128,
+               "gating": true,
+               "num_head": 4,
+               "inp_kernels": [],
+               "dropout_rate": 0.1,
+               "shared_dropout": false
+            },
+            "triangle_attention_starting_node": {
+               "orientation": "per_row",
+               "num_head": 4,
+               "gating": true,
+               "inp_kernels": [],
+               "dropout_rate": 0.1,
+               "shared_dropout": false
+            },
+            "triangle_attention_ending_node": {
+               "orientation": "per_column",
+               "num_head": 4,
+               "gating": true,
+               "inp_kernels": [],
+               "dropout_rate": 0.1,
+               "shared_dropout": false
+            },
+            "pair_transition": {
+               "orientation": "per_row",
+               "num_intermediate_factor": 4,
+               "dropout_rate": 0,
+               "shared_dropout": true
+            }
+         }
+      }
+      },
+
+   "readout": {
+      "reduce_op": "mean",
+      "lambda_iface": 1.0,
+      "lambda_noniface": 0.2,
+      "activation": "silu"
+   },
+   "trainer_cfg":
+    {
+      "margin_pred": 3,
+      "margin_noise": 6,
+      "lambda_rank": 0.5,
+      "lambda_bce": 1,
+      "bce_temp": 5,
+      "sharpness": 2,
+      "rmsd_cutoff": 2
+   },
+
+
+   "derivative": false
+   }
+        
+}

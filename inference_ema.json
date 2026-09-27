@@ -1,0 +1,12 @@
+{
+  "model_config":"./project/AbConf/config/config_model.json",
+  "model_features":"./project/AbConf/config/config_data_feature.json",
+  "model":"./project/AbConf/output/train/20251213_183949/ckpt_main/best_phase3_step22000_loss2.6180.pt",
+  "data_dir":"./project/AbConf/data/imgt_npz",
+  "name_idx": "./project/AbConf/test_radb_data/test.idx",
+  "use_ema": true,
+  "output_dir": "./project/AbConf/output",
+  "mode": "design",
+  "batch_size": 16,
+  "num_samples": 100
+}

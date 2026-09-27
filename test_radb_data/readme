@@ -1,0 +1,6 @@
+python /home/data1/cjm/project/AbConf/abx/data/build_train_val_idx.py   --npz_dir /home/data1/cjm/project/AbConf/data/imgt_npz   --rabd_idx /home/data1/cjm/project/AbConf/test_data/RAbD_test.idx   --out_dir  /home/data1/cjm/project/AbConf/test_radb_data   --valid_ratio 0.1   --min_seq_id 0.4
+
+
+
+
+采用完全的dymean格式的RADB_test

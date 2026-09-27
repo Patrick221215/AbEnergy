@@ -1,0 +1,33 @@
+{
+  "model_config":"./project/AbConf/config/config_model.json",
+  "model_features":"./project/AbConf/config/config_data_feature.json",
+  "data_dir":"./project/AbConf/data/imgt_npz",
+  "num_workers":1,
+  "log_steps":5,
+  "grad_clip":100,
+  "weight_decay":1e-4,
+  "lr_base":0.0,
+  "lr_max":3e-4,
+  "lr_warmup_ratio":0.1,
+  "lr_start_decay_ratio":0.3,
+  "lr_decay_every_ratio":0.1,
+  "lr_decay_factor":0.9,
+  "use_ema": true,
+  "train_idx": "./project/AbConf/test_radb_data/test.idx",
+  "val_idx": "./project/AbConf/test_radb_data/test.idx",
+  "output_dir": "./project/AbConf/output",
+  "save_interval": 10,
+  "batch_size": 3,
+  "accumulation_steps": 4,
+  "val_freq": 10,
+
+
+  "enable_energy": true,
+  "energy_config": "./project/AbConf/config/config_interface.json",
+  "energy_start_step": 1,
+  "energy_log_every": 1,
+  "energy_lambda": 1.0,
+  "energy_weight_decay": 0.01,
+  "energy_ema_decay": 0.999
+
+}

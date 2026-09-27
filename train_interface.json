@@ -1,0 +1,35 @@
+{
+  "model_config":"./project/AbEnergy/config/config_model.json",
+  "model_features":"./project/AbEnergy/config/config_data_feature.json",
+  "data_dir":"./project/AbConf/data/imgt_npz",
+  "num_workers":1,
+  "log_steps":1,
+  "grad_clip":2.5,
+  "weight_decay":1e-5,
+  "lr_base":0.0,
+  "lr_max":3e-4,
+  "lr_warmup_ratio":0.012,
+  "lr_start_decay_ratio":0.56,
+  "lr_decay_every_ratio":0.56,
+  "lr_decay_factor":0.95,
+  "use_ema": true,
+  "train_idx": "./project/AbEnergy/test_radb_data/train.idx",
+  "val_idx": "./project/AbEnergy/test_radb_data/val.idx",
+  "output_dir": "./project/AbEnergy/output",
+  "resume_checkpoint": "./project/AbEnergy/output/train/20251230_232557/ckpt_main/last_step6000_loss1.5424.pt",
+  "save_interval": 1000,
+  "batch_size": 5,
+  "accumulation_steps": 4,
+  "val_freq": 1000,
+  "ema_decay": 0.999,
+  
+
+  "enable_energy": false,
+  "energy_config": "./project/AbEnergy/config/config_interface.json",
+  "energy_start_step": 200,
+  "energy_log_every": 5,
+  "energy_lambda": 1.0,
+  "energy_weight_decay": 1e-5,
+  "energy_ema_decay": 0.999
+
+}
